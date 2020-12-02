@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table</title>
+    <style type="text/css">
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 500px;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            height: 50px;
+            width: 17%;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <div class="box">
+            <p id="num"></p>
+        </div>
+        <div class="box">
+            <p>x</p>
+        </div>
+        <div class="box">
+            <p id="count"></p>
+        </div>
+        <div class="box">
+            <p>=</p>
+        </div>
+        <div class="box">
+            <p id="mult"></p>
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        var container = document.getElementById("container");
+
+        function random() {
+            return Math.floor([Math.random() * 10 + 1]);
+        }
+
+        var random1 = random();
+        var html = "";
+        function multiplication(random1) {
+            var count = 1;
+            while (count <= 10) {
+                html += `<div class="box">
+                         <p id="num">${random1}</p>
+                         </div>
+                         <div class="box">
+                         <p>x</p>
+                         </div>
+                         <div class="box">
+                         <p id="count">${count}</p>
+                         </div>
+                         <div class="box">
+                         <p>=</p>
+                         </div>
+                         <div class="box">
+                         <p id="mult">${random1 * count}</p>
+                      </div>`
+                console.log(random1 + "x" + count + "=" + random1 * count);
+                count++;
+                container.innerHTML = html;
+            }
+            if (count === 10) {
+                clearInterval(timer);
+            }
+        }
+
+     var timer = setInterval(multiplication(random1), 1000);
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
